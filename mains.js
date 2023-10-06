@@ -3,16 +3,17 @@ function tocaSom(idElementoAudio){
 }
 
 const listaDeTeclas = document.querySelectorAll('.tecla');
-
-listaDeTeclas[0].onclick = tocaSom;
-
-let contador = 0;
 // Estrutura de repetição - Enquanto
+ for(let contador = 0;contador < listaDeTeclas.length;contador++) {
 
- while(contador < listaDeTeclas.length) {
-    const instrumento = listaDeTeclas[contador].classList[1];
-    console.log(instrumento);
-        tocaSom('#som_tecla_splash');
-}
-    contador = contador + 1;{
-}
+    const tecla = listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+    const idAudio = `#som_ ${instrumento}`;
+
+    tecla.onclick = function () {
+    tocaSom(idAudio);
+};
+
+ }
+
+
